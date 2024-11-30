@@ -23,6 +23,12 @@ func startTicker() *time.Ticker {
 				return
 			}
 			fmt.Println(string(output), "output", t)
+			cmd = exec.Command("curl", "https://stock-backend-3b3b.onrender.com/api/keepServerRunning")
+			output, err = cmd.CombinedOutput()
+			if err != nil {
+				return
+			}
+			fmt.Println(string(output), "output", t)
 		}
 	}()
 
